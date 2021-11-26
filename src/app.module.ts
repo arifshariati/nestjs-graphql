@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { UserModule } from './user/user.module';
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true
     }),
-    UserModule
+    UserModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
