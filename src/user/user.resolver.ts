@@ -5,6 +5,8 @@ import { SignupInput } from './dto/signup.input';
 import { LoginInput } from './dto/login.input';
 import { LoginResponse } from './dto/login-response';
 import { UseGuards } from '@nestjs/common';
+import { GraphqlJwtAuthGuard } from 'src/auth/guards/graphql-jwt-auth.guard';
+import { IRequestWithUser } from 'src/auth/interface';
 
 @Resolver(() => User)
 export class UserResolver {
@@ -27,7 +29,7 @@ export class UserResolver {
 
   @Query(() => [User])
   @UseGuards(GraphqlJwtAuthGuard)
-  users(@Context() context: { req: RequestWithUser }): Promise<User[]> {
+  users(@Context() context: { req: IRequestWithUser }): Promise<User[]> {
     return this.userService.findAll();
   }
 
@@ -35,7 +37,7 @@ export class UserResolver {
   @UseGuards(GraphqlJwtAuthGuard)
   user(
     @Args('id') id: string,
-    @Context() context: { req: RequestWithUser }
+    @Context() context: { req: IRequestWithUser }
   ): Promise<User> {
     return this.userService.findOne(id);
   }

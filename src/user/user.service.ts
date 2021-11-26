@@ -1,6 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { AuthService } from 'src/auth/auth.service';
 import { Repository } from 'typeorm';
+import { LoginResponse } from './dto/login-response';
 import { LoginInput } from './dto/login.input';
 import { SignupInput } from './dto/signup.input';
 import { User } from './entities/user.entity';
@@ -11,7 +13,7 @@ export class UserService {
 
   constructor(
     @InjectRepository(User) private usersRepository: Repository<User>,
-    // private authService: AuthService,
+    private authService: AuthService,
   ) { }
 
   async signup(signupInput: SignupInput): Promise<User> {
