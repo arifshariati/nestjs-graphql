@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { join } from 'path';
       database: 'homelike',
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true
-    })
+    }),
+    UserModule
   ],
   controllers: [],
   providers: [],
