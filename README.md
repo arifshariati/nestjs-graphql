@@ -1,6 +1,13 @@
 ## Description
 
-NestJs - Graphql - Postgres - Docker
+This is backend project which allow users to regiser, login, list properties and mark property as favorite.
+
+Project stack is;
+
+1. Nestjs
+2. Graphql
+3. Postgresql 
+4. Docker
 
 ## Installation
 
@@ -22,8 +29,8 @@ docker-compose up -d
 
 What above command does is running docker-compose with default docker-compose.yml file and configures, deploys and installs project with its dependencies in their respective conainers. Above command creates docker containers with below configuration;
 
-1- Postgres container and creates database folder "pgData" (can be used for database backup) with external port 5432 mapped to container port 5432.
-2- Project container with "Backend" name running on external port 4000 mapped to container port 4000.
+1. Postgres container and creates database folder **"pgData"** (*can be used for database backup*) with external port **5432** mapped to container port **5432**.
+2. Project container with "Backend" name running on external port **4000** mapped to container port **4000**.
 
 ### Installation for Development 
 
@@ -87,7 +94,7 @@ Once project runs, go to below url.
 http://localhost:4000
 ```
 
-NOTE: project url is same regardless of your installation method.
+**NOTE:** project url is same regardless of your installation method.
 ## Test
 
 ```bash
