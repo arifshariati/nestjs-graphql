@@ -14,11 +14,11 @@ import { FavoriteModule } from './favorite/favorite.module';
     GraphQLModule.forRoot({ autoSchemaFile: join(process.cwd(),'src/schema.gql')}),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: process.env.SOURCE === 'LOCAL' ? 'localhost' :'host.docker.internal',
       port: 5432,
-      username: 'homelike_user',
-      password: 'homelike_password',
-      database: 'homelike',
+      username: process.env.POSTGRES_USER,
+      password: process.env.POSTGRES_PASSWORD,
+      database: process.env.POSTGRES_DB,
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true
     }),
