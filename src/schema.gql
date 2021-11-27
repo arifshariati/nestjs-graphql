@@ -22,8 +22,8 @@ scalar DateTime
 
 type Favorite {
   id: String!
-  userId: String
-  propertyId: String
+  userId: String!
+  propertyId: String!
   user: User!
   property: Property!
 }
@@ -37,6 +37,7 @@ type User {
   country: String
   city: String
   properties: [Property!]
+  favorites: [Favorite!]
   createdAt: DateTime!
   updatedAt: DateTime
 }

@@ -36,14 +36,14 @@ export class FavoriteResolver {
     return await this.favoriteService.myFavorites(id);
   }
 
-  @ResolveField(returns => User)
+  @ResolveField(() => User)
   user(@Parent() favorite: Favorite): Promise<User> {
     return this.favoriteService.getUser(favorite.userId);
   }
 
-  @ResolveField(returns => Property)
-  property(@Parent() property: Favorite): Promise<Property> {
-    return this.favoriteService.getProperty(property.propertyId);
+  @ResolveField(() => Property)
+  property(@Parent() favorite: Favorite): Promise<Property> {
+    return this.favoriteService.getProperty(favorite.propertyId);
   }
 
 }

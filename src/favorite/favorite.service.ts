@@ -31,6 +31,7 @@ export class FavoriteService {
 
 
   async myFavorites(id: string): Promise<Favorite[]> {
+
     return await this.favoriteRepository.find({ userId: id })
   }
 

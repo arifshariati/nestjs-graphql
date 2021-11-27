@@ -10,17 +10,19 @@ export class Favorite {
   @Field()
   id: string;
 
-  @Column({ nullable: true })
-  @Field({ nullable: true })
+  @Column()
+  @Field()
   userId: string;
 
-  @Column({ nullable: true })
-  @Field({ nullable: true })
+  @Column()
+  @Field()
   propertyId: string;
 
   @ManyToOne(() => User, user => user.favorites)
+  @Field(() => User)
   user: User;
 
   @ManyToMany(() => Property, property => property.favorites)
+  @Field(() => Property)
   property: Property;
 }
