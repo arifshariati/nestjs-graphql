@@ -1,7 +1,22 @@
 version: "3"
 
 services:
-  db:
+  backend:
+    container_name: Backend
+    build:
+      context: .
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 4000:4000
+    environment:
+      - NODE_ENV=development
+    command: npm run start   
+    networks: 
+      - homelike_network 
+    depends_on:
+      - postgres
+  postgres:
     image: postgres:latest
     restart: always
     ports:
@@ -10,3 +25,7 @@ services:
       POSTGRES_DB: homelike
       POSTGRES_USER: homelike_user
       POSTGRES_PASSWORD: homelike_password
+    networks:
+      - homelike_network
+networks:
+  homelike_network:
