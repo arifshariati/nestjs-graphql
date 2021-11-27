@@ -72,7 +72,7 @@ input FindPropertyInput {
 type Mutation {
   signup(signupInput: SignupInput!): User!
   createProperty(createPropertyInput: CreatePropertyInput!): Property!
-  create(createFavoriteInput: CreateFavoriteInput!): Favorite!
+  createFavorite(createFavoriteInput: CreateFavoriteInput!): Favorite!
 }
 
 input SignupInput {

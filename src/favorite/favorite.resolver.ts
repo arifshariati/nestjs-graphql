@@ -12,7 +12,7 @@ import { Property } from 'src/property/entities/property.entity';
 export class FavoriteResolver {
   constructor(private readonly favoriteService: FavoriteService) {}
 
-  @Mutation(() => Favorite)
+  @Mutation(() => Favorite, { name: 'createFavorite'})
   @UseGuards(GraphqlJwtAuthGuard)
   async create(
     @Args('createFavoriteInput') createFavoriteInput: CreateFavoriteInput,
