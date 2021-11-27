@@ -6,6 +6,7 @@ import { join } from 'path';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { PropertyModule } from './property/property.module';
+import { FavoriteModule } from './favorite/favorite.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { PropertyModule } from './property/property.module';
     }),
     UserModule,
     AuthModule,
-    PropertyModule
+    PropertyModule,
+    FavoriteModule
   ],
   controllers: [],
   providers: [],

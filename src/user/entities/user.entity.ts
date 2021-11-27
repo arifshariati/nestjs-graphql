@@ -1,4 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { Favorite } from 'src/favorite/entities/favorite.entity';
+import { Property } from 'src/property/entities/property.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -32,13 +34,13 @@ export class User {
     @Field({ nullable: true })
     city?: string;
 
-    // @OneToMany(() => Property, property => property.user)
-    // @Field(() => [Property], { nullable: true })
-    // properties?: Property[];
+    @OneToMany(() => Property, property => property.user)
+    @Field(() => [Property], { nullable: true })
+    properties?: Property[];
 
 
-    // @OneToMany(()=> Favorite, favorite => favorite.user)
-    // favorites?: Favorite[];
+    @OneToMany(()=> Favorite, favorite => favorite.user)
+    favorites?: Favorite[];
 
     @Column()
     @Field()
