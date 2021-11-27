@@ -54,10 +54,10 @@ Since, Installation in development only spins postgres container, to run project
 ```bash
 # install node dependencies via npm or yarn (depends on your choice)
 
-#npm 
+# npm 
 npm i
 
-#yarn 
+# yarn 
 yarn 
 ```
 
@@ -65,11 +65,19 @@ Once required packages are installed, run below command to run the proejct.
 
 ```bash
 
-#npm 
+# Set Environment variable
+
+# macOS, linux 
+export SOURCE=LOCAL
+
+# Windows 
+set SOURCE=LOCAL 
+
+# npm 
 npm run start:dev #with hot reload
 npm run start
 
-#yarn 
+# yarn 
 yarn start
 ```
 
@@ -93,9 +101,11 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Useful Docker commands
+## Useful commands
 
 Below commands will come in handy while running this project.
+
+### Docker 
 
 ```bash
 
@@ -119,6 +129,17 @@ docker rm image [image_id]
 
 # Remove all images and containers from your machine  
 docker system prune -a
+```
+
+### Environment 
+
+```bash
+# list all environments 
+env or printenv   
+
+# get specific env variable 
+env | grep SOURCE OR printenv | grep SOURCE 
+
 ```
 
 ## Best of Luck &nbsp; &nbsp; 🚀
