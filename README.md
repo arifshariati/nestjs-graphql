@@ -107,6 +107,52 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+### Sample Test Output
+For this project i have written test cases and below is test result.
+
+```
+PASS  src/user/test/user.service.spec.ts (5.961 s)
+PASS  src/user/test/user.resolver.spec.ts (6.219 s)
+
+Test Suites: 2 passed, 2 total
+Tests:       20 passed, 20 total
+Snapshots:   0 total
+Time:        6.834 s, estimated 7 s
+Ran all test suites.
+
+```
+
+Below helps on understading details of assertions made for a test.
+
+```
+PASS  src/user/test/user.service.spec.ts
+  UserService
+    ✓ should be defined (13 ms)
+    signup
+      When signup is called
+        ✓ then it should have called this.getUserByEmail(signupInput.email) (3 ms)
+        ✓ then it should have called userRespository.create() (2 ms)
+        ✓ then should save user to database and return user (2 ms)
+    login
+      Wehen login is called
+        ✓ then it should have called useService.login() (3 ms)
+        ✓ then should return jwt token (2 ms)
+    users
+      When users is called
+        ✓ then it should have called userService.findAll() (3 ms)
+        ✓ then should return list of users (2 ms)
+    user
+      when user is called
+        ✓ then it should call userService.findOne() (2 ms)
+        ✓ then should return list of users (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       10 passed, 10 total
+Snapshots:   0 total
+Time:        5.039 s, estimated 7 s
+Ran all test suites matching /user.service/i.
+
+```
 
 ## Useful commands
 
