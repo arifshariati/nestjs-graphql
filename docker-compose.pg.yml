@@ -1,19 +1,6 @@
 version: "3"
 
 services:
-  backend:
-    container_name: Backend
-    build:
-      context: .
-    volumes:
-      - ./:/usr/src/app
-    ports:
-      - 4000:4000
-    command: npm run start   
-    networks: 
-      - homelike_network 
-    depends_on:
-      - postgres
   postgres:
     image: postgres:latest
     restart: always

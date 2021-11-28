@@ -1,0 +1,99 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Property {
+  id: String!
+  country: String
+  city: String
+  rooms: Float!
+  rent: Float!
+  user: User!
+  userId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  owner: User!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Favorite {
+  id: String!
+  userId: String!
+  propertyId: String!
+  user: User!
+  property: Property!
+}
+
+type User {
+  id: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  country: String
+  city: String
+  properties: [Property!]
+  favorites: [Favorite!]
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type LoginResponse {
+  jwt: String!
+}
+
+type Query {
+  login(loginInput: LoginInput!): LoginResponse!
+  users: [User!]!
+  user(id: String!): User!
+  properties(findPropertyInput: FindPropertyInput!): [Property!]!
+  property(id: String!): Property!
+  favorites: [Favorite!]!
+  myFavorites(id: String!): [Favorite!]!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input FindPropertyInput {
+  id: String
+  country: String
+  city: String
+  rooms: Float
+  rent: Float
+  userId: String
+}
+
+type Mutation {
+  signup(signupInput: SignupInput!): User!
+  createProperty(createPropertyInput: CreatePropertyInput!): Property!
+  createFavorite(createFavoriteInput: CreateFavoriteInput!): Favorite!
+}
+
+input SignupInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  country: String
+  city: String
+}
+
+input CreatePropertyInput {
+  country: String
+  city: String
+  rooms: Float!
+  rent: Float!
+  userId: String!
+}
+
+input CreateFavoriteInput {
+  userId: String!
+  propertyId: String!
+}
